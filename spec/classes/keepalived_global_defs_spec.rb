@@ -235,6 +235,21 @@ describe 'keepalived::global_defs', type: :class do
             )
         }
       end
+      describe 'with parameter vrrp_mcast_group4' do
+        let(:params) do
+          {
+            vrrp_mcast_group4: '224.0.0.18'
+          }
+        end
+
+        it {
+          is_expected.to \
+            contain_concat__fragment('keepalived.conf_globaldefs').with(
+              'content' => %r{vrrp_mcast_group4 224.0.0.18$}
+            )
+        }
+      end
+
     end
   end
 end
