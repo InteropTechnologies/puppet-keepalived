@@ -43,6 +43,9 @@
 #
 # $enable_traps::             Set enable_snmp_keepalived option.
 #                             Default: undef.
+#                             
+# $vrrp_mcast_group4::        Set vrrp_mcast_group4 ipaddress option.
+#                             Default: 224.0.0.18.
 #
 class keepalived::global_defs(
   $notification_email      = undef,
@@ -59,6 +62,7 @@ class keepalived::global_defs(
   $enable_snmp_rfcv3       = undef,
   $enable_traps            = undef,
   $snmp_socket             = 'unix:/var/agentx/master',
+  $vrrp_mcast_group4       = '224.0.0.18',
 ) inherits keepalived::params {
   concat::fragment { 'keepalived.conf_globaldefs':
     target  => "${keepalived::params::config_dir}/keepalived.conf",
