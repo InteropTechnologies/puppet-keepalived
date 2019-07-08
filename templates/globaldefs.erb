@@ -45,7 +45,7 @@ global_defs {
   <%- if @snmp_socket -%>
   snmp_socket <%= @snmp_socket %>
   <%- end -%>
-  <%- if @vrrp_mcast_group4 -%>
+  <%- if @vrrp_mcast_group4 != '224.0.0.18' -%>
   vrrp_mcast_group4 <%= @vrrp_mcast_group4 %>
   <%- end -%>
 
